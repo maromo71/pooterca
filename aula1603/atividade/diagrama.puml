@@ -1,0 +1,40 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Quarto {
+    - numero: String
+    - nomeHospede: String
+    - tipo: String
+    - valorConsumo: double
+    - ocupado: boolean
+    
+    + getNumero(): String
+    + setNumero(numero: String): void
+    + getNomeHospede(): String
+    + setNomeHospede(nomeHospede: String): void
+    + getTipo(): String
+    + setTipo(tipo: String): void
+    + getValorConsumo(): double
+    + setValorConsumo(valorConsumo: double): void
+    + isOcupado(): boolean
+    + setOcupado(ocupado: boolean): void
+    + adicionarConsumo(valor: double): void
+    + toString(): String
+}
+
+class GerenciarHotel {
+    - listaQuartos: List<Quarto>
+    
+    + {static} main(args: String[]): void
+    + execFazerCheckIn(): void
+    + execLancarConsumo(): void
+    + execConsultarQuarto(): void
+    + execFazerCheckOut(): void
+    + execListarTodos(): void
+    + execListarOcupados(): void
+    + execListarLivres(): void
+}
+
+GerenciarHotel "1" *-- "0..*" Quarto : gerencia >
+
+@enduml

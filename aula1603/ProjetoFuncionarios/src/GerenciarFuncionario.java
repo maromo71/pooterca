@@ -15,6 +15,10 @@ public class GerenciarFuncionario {
             System.out.println("1. Cadastrar Funcionario");
             System.out.println("2. Bonificar Funcionario");
             System.out.println("3. Consultar Funcionario");
+            System.out.println("4. Inativar Funcionario");
+            System.out.println("5. Listar Todos Funcionario");
+            System.out.println("6. Listar Funcionario Ativos");
+            System.out.println("7. Listar Ex-funcionarios");
             System.out.println("9. Sair");
             System.out.println("Escolha sua opcao");
             opcao = Integer.parseInt(sc.nextLine());
@@ -22,6 +26,10 @@ public class GerenciarFuncionario {
                 case 1 -> gerenciar.execCadastrar();
                 case 2 -> gerenciar.execBonificar();
                 case 3 -> gerenciar.execConsultar();
+                case 4 -> gerenciar.execInativar();
+                case 5 -> gerenciar.execConsultarTodos();
+                case 6 -> gerenciar.execConsultarTodosAtivos();
+                case 7 -> gerenciar.execConsultarTodosInativados();
                 case 9 -> System.out.println("Fim do Programa");
                 default -> System.out.println("Opcao invalida");
             }
@@ -72,5 +80,50 @@ public class GerenciarFuncionario {
         System.out.println("Funcionario cadastrado com sucesso...");
         listaFuncionarios.add(func); //adicionar funcionario na lista
 
+    }
+
+    public void execInativar(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o RG do funcionario a ser inativado: ");
+        String rgProc = sc.nextLine();
+        for(Funcionario funcionario : listaFuncionarios){
+            if(funcionario.getRg().equals(rgProc)){
+                funcionario.setAtivo(false);
+                System.out.println("Funcionario inativado com sucesso");
+                return;
+            }
+        }
+        System.out.println("Funcionario nao encontrado");
+    }
+    public void execConsultarTodos(){
+        int i = 1;
+        for(Funcionario funcionario: listaFuncionarios){
+            System.out.println(i + "o funcionario...");
+            System.out.println(funcionario);
+            System.out.println();
+            i++;
+        }
+    }
+    public void execConsultarTodosAtivos(){
+        int i = 1;
+        for(Funcionario funcionario: listaFuncionarios){
+            if(funcionario.isAtivo()){
+                System.out.println(i + "o funcionario...");
+                System.out.println(funcionario);
+                System.out.println();
+                i++;
+            }
+        }
+    }
+    public void execConsultarTodosInativados(){
+        int i = 1;
+        for(Funcionario funcionario: listaFuncionarios){
+            if(!funcionario.isAtivo()){
+                System.out.println(i + "o funcionario...");
+                System.out.println(funcionario);
+                System.out.println();
+                i++;
+            }
+        }
     }
 }
