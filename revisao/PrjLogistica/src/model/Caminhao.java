@@ -5,10 +5,10 @@ public class Caminhao {
     private String modelo;
     private int capacidadeCarga;
 
-    public String getPlaca() {
+    public String getPlaca(){
         return placa;
     }
-    public void setPlaca(String placa) {
+    public void setPlaca(String placa){
         this.placa = placa;
     }
     public String getModelo() {
@@ -29,7 +29,7 @@ public class Caminhao {
         StringBuilder sb = new StringBuilder("Dados do caminhão\n");
         sb.append("Placa: ").append(placa).append("\n");
         sb.append("Modelo: ").append(modelo).append("\n");
-        sb.append("Capacidade: ").append(capacidadeCarga);
+        sb.append("Capacidade: ").append(capacidadeCarga).append("\n");
         sb.append("=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-");
         return sb.toString();
     }

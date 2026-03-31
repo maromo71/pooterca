@@ -6,7 +6,7 @@ import java.util.List;
 public class Rota {
     private int idRota;
     private String destino;
-    private List<Caminhao>caminhaoList =new ArrayList<>();
+    private List<Caminhao>caminhaoList = new ArrayList<>();
     
     public int getIdRota() {
         return idRota;
@@ -30,7 +30,7 @@ public class Rota {
     public void listarFrotaDaRota(){
         System.out.println("Na rota n. " + idRota);
         System.out.println("Para: " + destino);
-        System.out.println("PArtem os seguintes caminhões: ");
+        System.out.println("Partem os seguintes caminhões: ");
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
         for(Caminhao caminhao : caminhaoList){
             System.out.println(caminhao);
