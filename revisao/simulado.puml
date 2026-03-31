@@ -1,0 +1,41 @@
+@startuml Frota_Logistica
+
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Caminhao {
+    - placa : String
+    - modelo : String
+    - capacidadeCarga : double
+    --
+    + getPlaca() : String
+    + setPlaca(placa : String) : void
+    + getModelo() : String
+    + setModelo(modelo : String) : void
+    + getCapacidadeCarga() : double
+    + setCapacidadeCarga(cap : double) : void
+    + toString() : String
+}
+
+class Rota {
+    - idRota : int
+    - destino : String
+    - caminhaoList : List<Caminhao>
+    --
+    + getIdRota() : int
+    + setIdRota(id : int) : void
+    + getDestino() : String
+    + setDestino(dest : String) : void
+    + getCaminhaoList() : List<Caminhao>
+    + listarFrotaDaRota() : void
+}
+
+class PrjLogisticaTest {
+    + {static} main(args : String[]) : void
+}
+
+Rota "1" -- "*" Caminhao : aloca >
+PrjLogisticaTest ..> Rota
+PrjLogisticaTest ..> Caminhao
+
+@enduml
