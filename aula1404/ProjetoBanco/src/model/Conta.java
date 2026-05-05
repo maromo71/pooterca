@@ -20,7 +20,8 @@ public abstract class Conta {
 
     public void sacar(double valor){
         if(valor <= saldo){
-            saldo -= valor;
+            double valorTaxa = taxaSaque(valor);
+            saldo -= valor + valorTaxa;
         }else{
             throw new IllegalArgumentException("Sem saldo para saque");
         }
@@ -32,4 +33,6 @@ public abstract class Conta {
                 "Cliente: " + cliente + "\n" +
                 "Saldo: R$ " + saldo + "\n";
     }
+
+    abstract double taxaSaque(double valor);
 }

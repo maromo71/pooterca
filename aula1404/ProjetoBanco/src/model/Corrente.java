@@ -11,7 +11,8 @@ public class Corrente extends Conta {
     @Override
     public void sacar(double valor) {
         if(valor <= (limiteEspecial + saldo)){
-            saldo -= valor;
+            double valorTaxa = taxaSaque(valor);
+            saldo -= (valor + valorTaxa);
         }else{
             throw new IllegalArgumentException("Sem saldo ou limite para o saque");
         }
@@ -21,5 +22,10 @@ public class Corrente extends Conta {
     public String toString() {
         return super.toString() +
                 "Limite do Especial: " + limiteEspecial;
+    }
+
+    @Override
+    double taxaSaque(double valor) {
+        return valor * 0.001;
     }
 }

@@ -13,4 +13,9 @@ public class Poupanca extends Conta {
         return super.toString() +
                 "Taxa de Juros: " + taxaJuros;
     }
+
+    @Override
+    double taxaSaque(double valor) {
+        return valor * 0.0005;
+    }
 }
